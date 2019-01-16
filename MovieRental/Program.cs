@@ -10,70 +10,85 @@ namespace MovieRentalKata
         CHILDRENS
     }   
 
-    class Movie {
+    class Movie 
+    {
         private String title;
         private PriceCode priceCode;
 
-        public Movie(String title, PriceCode priceCode) {
+        public Movie(String title, PriceCode priceCode) 
+        {
             this.title = title;
             this.priceCode = priceCode;
         }
 
-        public PriceCode PriceCode {
+        public PriceCode PriceCode 
+        {
             get => priceCode;
             set => priceCode = value;
         }
 
-        public String Title {
+        public String Title 
+        {
             get => title;
         }
     }
 
-    class Rental {
+    class Rental 
+    {
         private Movie movie;
         private int daysRented;
 
-        public Rental(Movie movie, int daysRented) {
+        public Rental(Movie movie, int daysRented) 
+        {
             this.movie = movie;
             this.daysRented = daysRented;
         }
 
-        public int DaysRented {
+        public int DaysRented 
+        {
             get => daysRented;
         }
 
-        public Movie Movie {
+        public Movie Movie 
+        {
             get => movie;
         }
     }
 
-    class Customer {
+    class Customer 
+    {
         private String name;
         private List<Rental> rentals = new List<Rental>();
 
-        public Customer(String name) {
+        public Customer(String name) 
+        {
             this.name = name;
         }
 
-        public void AddRental(Rental rental) {
+        public void AddRental(Rental rental) 
+        {
             rentals.Add(rental);
         }
 
-        public String Name {
+        public String Name 
+        {
             get => name;
         }
 
-        public String Statement() {
+        public String Statement() 
+        {
             double totalAmount = 0;
             int frequentRenterPoints = 0;
 
             String result = "Rental Record for " + Name + "\n";
 
-            foreach (var rental in rentals) {
+            foreach (var rental in rentals) 
+            {
                 double thisAmount = 0;
 
                 // Determine amounts for each line
-                switch (rental.Movie.PriceCode) {
+                switch (rental.Movie.PriceCode) 
+                {
                     case PriceCode.REGULAR:
                         thisAmount += 2;
                         if (rental.DaysRented > 2)
